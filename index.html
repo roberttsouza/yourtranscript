@@ -1,66 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>Transcrição de Vídeo do YouTube</title>
-  <script src="https://www.youtube.com/iframe_api"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Transcript</title>
 </head>
 <body>
-  <h1>Transcrição de Vídeo do YouTube</h1>
-  <div id="player"></div>
-  <div id="transcription"></div>
+    <main>
+        <h1>Transcrição de Vídeo do YouTube</h1>
 
-  <script>
-    // Função para carregar o vídeo do YouTube
-    function onYouTubeIframeAPIReady() {
-      var player = new YT.Player('player', {
-        height: '360',
-        width: '640',
-        videoId: 'OoVQxNGY1CY',
-        events: {
-          'onReady': onPlayerReady
-        }
-      });
-    }
+        <div class="containerForm">
+            <label for="videoLink">Insira o link do vídeo do YouTube:</label>
+            <input type="text" id="videoLink" placeholder="Insira o link do vídeo do YouTube">
 
-    // Função para executar a transcrição
-    function onPlayerReady(event) {
-      var transcript = event.target.getVideoData().transcript;
-      var transcriptionArea = document.getElementById('transcription');
-      transcriptionArea.innerText = transcript;
-    }
-  </script>
+            <button onclick="transcreverVideo()">Transcrever</button>
+        </div>
+    </main>
 
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script>
-    // Informe o ID do vídeo do YouTube abaixo
-    var videoId = 'OoVQxNGY1CY';
 
-    // Carrega a API do YouTube Player
-    var tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    // Função para criar o player quando a API estiver pronta
-    function onYouTubeIframeAPIReady() {
-      new YT.Player('player', {
-        height: '360',
-        width: '640',
-        videoId: videoId,
-        events: {
-          'onReady': onPlayerReady
-        }
-      });
-    }
-
-    // Função para executar a transcrição quando o player estiver pronto
-    function onPlayerReady(event) {
-      var player = event.target;
-      player.playVideo();
-      var transcript = player.getVideoData().transcript;
-      var transcriptionArea = document.getElementById('transcription');
-      transcriptionArea.innerText = transcript;
-    }
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
